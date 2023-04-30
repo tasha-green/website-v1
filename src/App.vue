@@ -28,16 +28,6 @@
 <script>
 import HomePage from './components/HomePage.vue'
 
-let nav = document.querySelector("nav");
-window.onscroll = function() {
-  if(document.documentElement.scrollTop > 30) {
-    nav.classList.add("sticky");
-  }
-  else {
-    nav.classList.remove("sticky");
-  }
-}
-
 export default {
   name: 'App',
   components: {
@@ -57,6 +47,17 @@ export default {
     }
   }
 }
+
+window.onscroll = function() {
+  let nav = document.querySelector("nav");
+  if(document.documentElement.scrollTop > 20) {
+    nav.classList.add("sticky");
+  }
+  else {
+    nav.classList.remove("sticky");
+  }
+}
+
 </script>
 
 <style>
@@ -64,12 +65,21 @@ export default {
   text-decoration: none;
 }
 
-nav.sticky {
-  background: #00A4BD;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+nav .menuBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.4s ease;
 }
+
+nav.sticky .menuBar {
+  background: #A9D18E;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
 .menuBar {
-  background-color: #A9D18E;
+  background-color: #FFFFFF;
   padding-left: 30px;
   padding-right: 50px;
   display: flex;
