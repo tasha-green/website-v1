@@ -67,19 +67,19 @@ window.onscroll = function() {
 
 nav .menuBar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  /*top: 0;
+  left: 0;*/
+  width: 95%; 
   transition: all 0.4s ease;
 }
 
 nav.sticky .menuBar {
-  background: #A9D18E;
+  background: #fecd03;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .menuBar {
-  background-color: #FFFFFF;
+  background-color: #A9D18E;
   padding-left: 30px;
   padding-right: 50px;
   display: flex;
