@@ -1,0 +1,10 @@
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="41" height="44" viewBox="0 0 41 44">
+  <rect id="Rectangle_1" data-name="Rectangle 1" width="41" height="44" fill="#a9d18e"/>
+  <g id="Small_Logo" data-name="Small Logo" transform="translate(3.762 2.262)">
+    <path id="Path_1" data-name="Path 1" d="M131.762-73.738v39.611l13.094-39.611v39.611" transform="translate(-131.762 73.738)" fill="none" stroke="#707070" stroke-width="3"/>
+    <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(18.513 1.369)">
+      <path id="Path_2" data-name="Path 2" d="M156.74-73.047h-8.464v36.728h13.4V-53.377h-9.61" transform="translate(-148.276 73.047)" fill="none" stroke="#707070" stroke-width="3"/>
+      <path id="Path_3" data-name="Path 3" d="M161.677-52.416h2.91" transform="translate(-148.276 72.084)" fill="none" stroke="#707070" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
