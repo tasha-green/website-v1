@@ -74,12 +74,12 @@ nav .menuBar {
 }
 
 nav.sticky .menuBar {
-  background: #fecd03;
+  background: #A9D18E;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .menuBar {
-  background-color: #A9D18E;
+  background-color: #FFFFFF;
   padding-left: 30px;
   padding-right: 50px;
   display: flex;
