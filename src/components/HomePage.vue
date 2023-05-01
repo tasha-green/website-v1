@@ -1,27 +1,4 @@
 <template>
-  <!--<nav>
-    <div class="menuBar">
-      <div class="logo">
-        <p id="firstName">{{ logoFirst }}</p>
-        <p id="lastName">{{ logoLast }}</p>
-      </div>
-      <ul class="navBar">
-        <li><a class="navItem" href="#">{{ aboutLink }}</a></li>
-        <li>
-          <div class="dropdown">
-            <button class="navItem">{{ workDropdown }}</button>
-            <div class="dropdownContent">
-              <a href="#">{{ dropDownOptionDesign }}</a>
-              <a href="#">{{ dropDownOptionJS }}</a>
-              <a href="#">{{ dropDownOptionModel }}</a>
-              <a href="#">{{ dropDownOptionUnity }}</a>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>-->
-
   <div class="textToTest">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed culpa minus ducimus nostrum aspernatur qui 
@@ -55,9 +32,7 @@
 <script>
 export default {
   name: 'HomePage'
-  
 }
-
 </script>
 
 <style scoped>

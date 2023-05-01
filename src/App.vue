@@ -23,15 +23,30 @@
   </nav>
 
   <HomePage/>
+  <AboutPage/>
+  <DesignPage/>
+  <JavascriptPage/>
+  <ModellingPage/>
+  <UnityPage/>
 </template>
 
 <script>
 import HomePage from './components/HomePage.vue'
+import AboutPage from './components/AboutPage.vue'
+import JavascriptPage from './components/JavascriptPage.vue'
+import ModellingPage from './components/ModellingPage.vue'
+import DesignPage from './components/DesignPage.vue'
+import UnityPage from './components/UnityPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HomePage
+    HomePage,
+    AboutPage,
+    JavascriptPage,
+    ModellingPage,
+    UnityPage,
+    DesignPage
   },
   data() {
     return {
