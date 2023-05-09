@@ -6,59 +6,56 @@
         <p id="lastName">{{ logoLast }}</p>
       </div>
       <ul class="navBar">
-        <li><a class="navItem" href="#">{{ aboutLink }}</a></li>
         <li>
           <div class="dropdown">
             <button class="navItem">{{ workDropdown }}</button>
+            <img class="dropdownPic" src="../src/assets/dropdown.png">
             <div class="dropdownContent">
-              <a href="#">{{ dropDownOptionDesign }}</a>
-              <a href="#">{{ dropDownOptionJS }}</a>
-              <a href="#">{{ dropDownOptionModel }}</a>
-              <a href="#">{{ dropDownOptionUnity }}</a>
+              <a href="components/DesignPage.vue">{{ dropDownOptionDesign }}</a>
+              <a href="components/JavascriptPage.vue">{{ dropDownOptionJS }}</a>
+              <a href="components/ModellingPage.vue">{{ dropDownOptionModel }}</a>
+              <a href="components/UnityPage.vue">{{ dropDownOptionUnity }}</a>
             </div>
           </div>
+        </li>
+        <li>
+          <a class="navItem" href="#" style="padding-top: 6px">{{ contact }}</a>
         </li>
       </ul>
     </div>
   </nav>
-
-  <HomePage/>
-  <AboutPage/>
-  <DesignPage/>
-  <JavascriptPage/>
-  <ModellingPage/>
-  <UnityPage/>
+  <div class="body">
+    <AboutPage/>
+    <DesignPage/>
+  </div>
 </template>
 
 <script>
-import HomePage from './components/HomePage.vue'
 import AboutPage from './components/AboutPage.vue'
-import JavascriptPage from './components/JavascriptPage.vue'
-import ModellingPage from './components/ModellingPage.vue'
+//import JavascriptPage from './components/JavascriptPage.vue'
+//import ModellingPage from './components/ModellingPage.vue'
 import DesignPage from './components/DesignPage.vue'
-import UnityPage from './components/UnityPage.vue'
+//import UnityPage from './components/UnityPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HomePage,
     AboutPage,
-    JavascriptPage,
-    ModellingPage,
-    UnityPage,
+    //JavascriptPage,
+    //ModellingPage,
+    //UnityPage,
     DesignPage
   },
   data() {
     return {
       logoFirst: "Natasha",
       logoLast: "Green",
-      aboutLink: "ABOUT",
       workDropdown: "WORK",
       dropDownOptionDesign: "Design",
       dropDownOptionJS: "Javascript Projects",
       dropDownOptionModel: "Modelling",
-      dropDownOptionUnity: "Unity"
-
+      dropDownOptionUnity: "Unity",
+      contact: "CONTACT"
     }
   }
 }
@@ -79,18 +76,31 @@ window.onscroll = function() {
 * {
   text-decoration: none;
 }
+.body {
+  padding: 78px 0px 0px;
+}
+
+.dropdownPic {
+  margin-bottom: -6px;
+}
+
+.navBar li {
+  vertical-align: bottom;
+}
+body {
+  background-color: #F4FCED;
+}
 
 nav .menuBar {
   position: fixed;
-  /*top: 0;
-  left: 0;*/
+  top: 0;
+  left: 0;
   width: 95%; 
   transition: all 0.4s ease;
 }
 
 nav.sticky .menuBar {
-  background: #A9D18E;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.075);
 }
 
 .menuBar {
@@ -98,7 +108,7 @@ nav.sticky .menuBar {
   padding-left: 30px;
   padding-right: 50px;
   display: flex;
-  justify-content: space-between;
+  
 }
 
 .navItem {
@@ -108,6 +118,7 @@ nav.sticky .menuBar {
   font-weight: 200;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 15px;
+  padding-left: 10px;
 }
 
 
