@@ -25,6 +25,9 @@
     </div>
   </nav>
   <div class="body">
+    <div class="progress">
+      <div class="bar"></div>
+    </div>
     <AboutPage/>
     <DesignPage/>
   </div>
@@ -70,12 +73,32 @@ window.onscroll = function() {
   }
 }
 
+/*function progress() {
+
+  var windowScrollTop = (window).scrollTop();
+  var docHeight = (document).height();
+  var windowHeight = (window).height();
+  var progress = (windowScrollTop / (docHeight - windowHeight)) * 100;
+  var $bgColor = progress > 99 ? '#4db792' : '#EF4E31';
+
+  ('.progress .bar').width(progress + '%').css({ backgroundColor: $bgColor });
+  
+  ('.fill').height(progress + '%').css({ backgroundColor: $bgColor });
+}
+
+progress();
+
+(document).on('scroll', progress);*/
+
 </script>
 
 <style>
 * {
   text-decoration: none;
 }
+
+
+
 .body {
   padding: 78px 0px 0px;
 }
