@@ -6,10 +6,10 @@
         <p id="lastName">{{ logoLast }}</p>
       </div>
       <ul class="navBar">
-        <li>
+        <!--<li>
           <div class="dropdown">
             <button class="navItem">{{ workDropdown }}</button>
-            <img class="dropdownPic" src="../src/assets/dropdown.png">
+            <span class="material-icons">{{ dropdownIcon }}</span>
             <div class="dropdownContent">
               <a href="components/DesignPage.vue">{{ dropDownOptionDesign }}</a>
               <a href="components/JavascriptPage.vue">{{ dropDownOptionJS }}</a>
@@ -20,16 +20,21 @@
         </li>
         <li>
           <a class="navItem" href="#" style="padding-top: 6px">{{ contact }}</a>
-        </li>
+        </li>-->
       </ul>
+      <div class="contact">
+        <span class="material-icons">{{ emailIcon }}</span>
+        <p class="email">natasha2green@gmail.com</p>
+      </div>
     </div>
   </nav>
   <div class="body">
     <div class="progress">
-      <div class="bar"></div>
     </div>
-    <AboutPage/>
-    <DesignPage/>
+    <div class="pages">
+      <AboutPage/>
+      <DesignPage/>
+    </div>
   </div>
 </template>
 
@@ -58,7 +63,9 @@ export default {
       dropDownOptionJS: "Javascript Projects",
       dropDownOptionModel: "Modelling",
       dropDownOptionUnity: "Unity",
-      contact: "CONTACT"
+      contact: "CONTACT",
+      dropdownIcon: "arrow_drop_down",
+      emailIcon: "email"
     }
   }
 }
@@ -71,24 +78,17 @@ window.onscroll = function() {
   else {
     nav.classList.remove("sticky");
   }
+
+  let scrollTop = window.scrollY;
+  let docHeight = document.body.offsetHeight;
+  let winHeight = window.innerHeight;
+  let scrollPercent = scrollTop / (docHeight - winHeight);
+  let scrollPercentRounded = Math.round(scrollPercent * 100);
+
+  document.querySelector(
+          ".progress"
+        ).style.background = `linear-gradient(to bottom, #6FC18C ${scrollPercentRounded}%, #F4FCED ${scrollPercentRounded}%)`;
 }
-
-/*function progress() {
-
-  var windowScrollTop = (window).scrollTop();
-  var docHeight = (document).height();
-  var windowHeight = (window).height();
-  var progress = (windowScrollTop / (docHeight - windowHeight)) * 100;
-  var $bgColor = progress > 99 ? '#4db792' : '#EF4E31';
-
-  ('.progress .bar').width(progress + '%').css({ backgroundColor: $bgColor });
-  
-  ('.fill').height(progress + '%').css({ backgroundColor: $bgColor });
-}
-
-progress();
-
-(document).on('scroll', progress);*/
 
 </script>
 
@@ -97,10 +97,30 @@ progress();
   text-decoration: none;
 }
 
-
+.progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  height: 89%;
+  z-index: 0;
+}
 
 .body {
   padding: 78px 0px 0px;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  float: right;
+}
+.material-icons {
+  padding-right: 4%;
+  color:#707070;
+}
+.email {
+  vertical-align: middle;
 }
 
 .dropdownPic {
@@ -116,6 +136,7 @@ body {
 
 nav .menuBar {
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 95%; 
@@ -128,6 +149,7 @@ nav.sticky .menuBar {
 
 .menuBar {
   background-color: #FFFFFF;
+  justify-content: space-between;
   padding-left: 30px;
   padding-right: 50px;
   display: flex;
@@ -168,12 +190,13 @@ ul {
 
 .dropdown {
   padding-left: 20px;
-  display: inline-block;
+  display: inline-flex;
   position: relative;
 }
 
 .dropdownContent {
   display: none;
+  margin-top: 20px;
   background-color: #FFFFFF;
   position: absolute;
   width: 100%;
