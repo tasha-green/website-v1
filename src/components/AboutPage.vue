@@ -1,31 +1,36 @@
 <template>
   <div class="container">
-    <div class="overlay">
+    <div class="row">
+      <div class="col-6">
         <p class="aboutTitle">{{ uxTitle }}</p>
         <p class="aboutTitle">{{ and }}</p>
         <p class="aboutTitle">{{ artTitle }}</p>
+      </div>
+      <div class="col-6">
+        <div id="scene-container">
+        </div>
+      </div>
     </div>
-
-    <canvas id="vinesCanvas">
-    </canvas>
+    <div class="row">
+      <p class="col-12 name">
+        Hi, my name is <em>Tasha</em>!<br>
+      </p>
+    </div>
+    <div class="row">
+      <p class="col-12 intro">
+        I've graduated with a bachelor's degree in computer science and visual arts at the University of Victoria. I have
+        a years worth of experience working as a UX developer/designer. I'm passionate about creating inclusive and responsive designs.
+        I also love to create personal web art projects using mostly three.js and blender for 3d modelling.
+      </p>
+    </div>
   </div>
-
-  <transition name="fade">
-    <p class="name">
-    Hi, my name is <em>Tasha</em>!<br>
-    </p>
-  </transition>
-
-  <p class="intro">
-   I've graduated with a bachelor's degree in computer science and visual arts at the University of Victoria. I have
-   a year's worth of experience working as a UX developer/designer. I'm passionate about creating inclusive and dynamic designs.
-   I also love to create personal web art projects using mostly three.js and
-   blender for 3d modelling.
-  </p>
 
 </template>
   
 <script>
+import * as THREE from "../vendor/three/build/three.module.js";
+import { GLTFLoader } from "../vendor/three/examples/GLTFLoader.js"
+
 export default {
   name: 'AboutPage',
   data() {
@@ -33,80 +38,66 @@ export default {
       uxTitle: "UX Developer",
       and: "&",
       artTitle: "Artist",
+      camera: null,
+      container: null,
+      clock: null,
+      scene: null,
+      mixer: null,
+      renderer: null
     }
   },
-  mounted: function () {
-    const canvas = document.getElementById('vinesCanvas');
-    const ctx = canvas.getContext('2d');   //context - could also be set to webgl
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  methods: {
+    init: function() {
+      this.container = document.querySelector('#scene-container');
 
-    window.addEventListener('resize', function() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      this.clock = new THREE.Clock();
+      this.scene = new THREE.Scene();
 
-      ctx.lineCap = 'round';
-      ctx.lineWidth = 12;
-      ctx.beginPath();
-      ctx.strokeStyle = '#6FC18C'
-      ctx.moveTo(-3, 650);
-      ctx.bezierCurveTo(50, 550, 300, 400, 400, 500);
-      ctx.bezierCurveTo(600, 650, 500, 300, 800, 300);
-      ctx.bezierCurveTo(900, 300, 900, 200, 1300, 0);
-      ctx.stroke();
-      
-      ctx.lineWidth = 8;
-      ctx.beginPath();
-      ctx.strokeStyle = '#A9D18E';
-      ctx.moveTo(500, -1);
-      ctx.bezierCurveTo(500, 200, 900, 200, 1000, 400);
-      ctx.bezierCurveTo(1100, 600, 1300, 400, 1550, 300);
-      ctx.stroke();
+      const ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
+      this.scene.add( ambientLight );
 
-      ctx.lineWidth = 10;
-      ctx.beginPath();
-      ctx.strokeStyle = '#707070';
-      ctx.moveTo(900, -1);
-      ctx.bezierCurveTo(300, 400, 900, 800, 1100, 600);
-      ctx.bezierCurveTo(1200, 500, 1300, 400, 1550, 700);
-      ctx.stroke();
-    });
+      const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
+      directionalLight.position.set( 1, 1, 0 ).normalize();
+      this.scene.add( directionalLight );
 
+      const fov = 35;
+      const aspect = this.container.clientWidth / this.container.clientHeight;
+      const near = 0.1;
+      const far = 100;
 
-    ctx.lineCap = 'round';
-    ctx.lineWidth = 12;
-    ctx.beginPath();
-    ctx.strokeStyle = '#6FC18C'
-    ctx.moveTo(-3, 650);
-    ctx.bezierCurveTo(50, 550, 300, 400, 400, 500);
-    ctx.bezierCurveTo(600, 650, 500, 300, 800, 300);
-    ctx.bezierCurveTo(900, 300, 900, 200, 1300, 0);
-    ctx.stroke();
-    
-    ctx.lineWidth = 8;
-    ctx.beginPath();
-    ctx.strokeStyle = '#A9D18E';
-    ctx.moveTo(500, -1);
-    ctx.bezierCurveTo(500, 200, 900, 200, 1000, 400);
-    ctx.bezierCurveTo(1100, 600, 1300, 400, 1550, 300);
-    ctx.stroke();
+      this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
-    ctx.lineWidth = 10;
-    ctx.beginPath();
-    ctx.strokeStyle = '#707070';
-    ctx.moveTo(900, -1);
-    ctx.bezierCurveTo(300, 400, 900, 800, 1100, 600);
-    ctx.bezierCurveTo(1200, 500, 1300, 400, 1550, 700);
-    ctx.stroke();
+      this.camera.position.set(0, 0, 10);
 
+      var loader = new GLTFLoader();
 
-    /*function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      requestAnimationFrame(animate);
+      loader.load("../assets/bird-metallic1.glb", function(gltf) {
+        this.mixer = new THREE.AnimationMixer(gltf.scene);
+        this.mixer.clipAction(gltf.animations[0]).play();
+
+        this.scene.add(gltf.scene);
+      });
+
+      this.renderer = new THREE.WebGLRenderer();
+      this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+      this.renderer.setPixelRatio(window.devicePixelRatio);
+      this.container.append(this.renderer.domElement);
+    },
+    animate: function() {
+      requestAnimationFrame(this.animate);
+
+      const dt = this.clock.getDelta();
+
+      if(this.mixer) {
+        this.mixer.update(dt);
+      }
+
+      this.renderer.render(this.scene, this.camera);
     }
-
-    animate();*/
+  },
+  mounted() {
+    this.init();
+    this.animate();
   }
 }
 
@@ -122,8 +113,14 @@ export default {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 40px;
   margin-left: 40px;
-  padding-top: 525px;
   margin-block-start: 0px;
+}
+
+#scene-container {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color:rgb(100, 138, 108);
 }
 
 .name em {
@@ -149,37 +146,8 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: 200px;
-}
-.container, canvas, .overlay {
-  position: absolute;
-}
-canvas {
-  width: 100%;
-  height: 600px;
-  z-index: 1;
-}
-.fade-enter-from {
-  opacity: 0;
-}
-
-.fade-enter-to {
-  opacity: 1;
-}
-
-.fade-enter-active {
-  transition: all 4s ease;
-}
-
-.fade-leave-from {
- opacity: 1;
-}
-
-.fade-leave-to {
-opacity: 0;
-}
-
-.fade-leave-active {
-transition: all 4s ease;
+  height: 100%;
+  background: #F4FCED;
+  z-index: 0;
 }
 </style>

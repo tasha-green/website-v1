@@ -1,94 +1,64 @@
 <template>
-  <nav>
-    <div class="menuBar">
-      <div class="logo">
-        <p id="firstName">{{ logoFirst }}</p>
-        <p id="lastName">{{ logoLast }}</p>
-      </div>
-      <ul class="navBar">
-        <!--<li>
-          <div class="dropdown">
-            <button class="navItem">{{ workDropdown }}</button>
-            <span class="material-icons">{{ dropdownIcon }}</span>
-            <div class="dropdownContent">
-              <a href="components/DesignPage.vue">{{ dropDownOptionDesign }}</a>
-              <a href="components/JavascriptPage.vue">{{ dropDownOptionJS }}</a>
-              <a href="components/ModellingPage.vue">{{ dropDownOptionModel }}</a>
-              <a href="components/UnityPage.vue">{{ dropDownOptionUnity }}</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <a class="navItem" href="#" style="padding-top: 6px">{{ contact }}</a>
-        </li>-->
-      </ul>
-      <div class="contact">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{ logoFirst }} {{ logoLast }}</a>
+      <div class="navbar-contact">
         <span class="material-icons">{{ emailIcon }}</span>
-        <p class="email">natasha2green@gmail.com</p>
+        <p class="navbar-contact-email">natasha2green@gmail.com</p>
       </div>
     </div>
   </nav>
+
   <div class="body">
-    <div class="progress">
-    </div>
-    <div class="pages">
+    <div class="body-progress"></div>
+    <div class="body-pages">
       <AboutPage/>
-      <DesignPage/>
     </div>
   </div>
 </template>
 
 <script>
 import AboutPage from './components/AboutPage.vue'
-//import JavascriptPage from './components/JavascriptPage.vue'
-//import ModellingPage from './components/ModellingPage.vue'
-import DesignPage from './components/DesignPage.vue'
-//import UnityPage from './components/UnityPage.vue'
 
 export default {
   name: 'App',
   components: {
-    AboutPage,
-    //JavascriptPage,
-    //ModellingPage,
-    //UnityPage,
-    DesignPage
+    AboutPage
   },
   data() {
     return {
       logoFirst: "Natasha",
       logoLast: "Green",
-      workDropdown: "WORK",
-      dropDownOptionDesign: "Design",
-      dropDownOptionJS: "Javascript Projects",
-      dropDownOptionModel: "Modelling",
-      dropDownOptionUnity: "Unity",
-      contact: "CONTACT",
-      dropdownIcon: "arrow_drop_down",
       emailIcon: "email"
     }
   }
 }
 
 window.onscroll = function() {
-  let nav = document.querySelector("nav");
-  if(document.documentElement.scrollTop > 20) {
-    nav.classList.add("sticky");
-  }
-  else {
-    nav.classList.remove("sticky");
-  }
 
-  let scrollTop = window.scrollY;
-  let docHeight = document.body.offsetHeight;
-  let winHeight = window.innerHeight;
-  let scrollPercent = scrollTop / (docHeight - winHeight);
-  let scrollPercentRounded = Math.round(scrollPercent * 100);
+  var winHeight = getWindowHeight();
+  var scrollTop = getWindowScroll();
+  var docHeight = getDocumentHeight();
+
+  var progress = (scrollTop/ (docHeight - winHeight)) * 100;
 
   document.querySelector(
-          ".progress"
-        ).style.background = `linear-gradient(to bottom, #6FC18C ${scrollPercentRounded}%, #F4FCED ${scrollPercentRounded}%)`;
+          ".body-progress"
+        ).style.background = `linear-gradient(to bottom, #6FC18C ${progress}%, #F4FCED ${progress}%)`;
 }
+
+function getWindowHeight() {
+  return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0;
+}
+
+function getWindowScroll() {
+  return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop || 0;
+}
+
+function getDocumentHeight() {
+  return Math.max(document.body.scrollHeight || 0, document.documentElement.scrollHeight || 0, document.body.offsetHeight || 0, document.documentElement.offsetHeight || 0, document.body.clientHeight || 0, document.documentElement.clientHeight || 0);
+}
+
 
 </script>
 
@@ -97,129 +67,41 @@ window.onscroll = function() {
   text-decoration: none;
 }
 
-.progress {
+.body-progress {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 10px;
-  height: 89%;
-  z-index: 0;
+  height: 90.5%;
+  /*height: 100%;*/
+  z-index: 1;
+  --bs-progress-bg: #F4FCED;
 }
 
 .body {
   padding: 78px 0px 0px;
-}
-
-.contact {
-  display: inline-flex;
-  align-items: center;
-  float: right;
-}
-.material-icons {
-  padding-right: 4%;
-  color:#707070;
-}
-.email {
-  vertical-align: middle;
-}
-
-.dropdownPic {
-  margin-bottom: -6px;
-}
-
-.navBar li {
-  vertical-align: bottom;
-}
-body {
   background-color: #F4FCED;
 }
 
-nav .menuBar {
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 95%; 
-  transition: all 0.4s ease;
-}
-
-nav.sticky .menuBar {
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.075);
-}
-
-.menuBar {
-  background-color: #FFFFFF;
-  justify-content: space-between;
-  padding-left: 30px;
-  padding-right: 50px;
-  display: flex;
-  
-}
-
-.navItem {
-  background-color: transparent;
-  border: transparent;
-  color:#000000;
-  font-weight: 200;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 15px;
-  padding-left: 10px;
-}
-
-
-.logo {
-  display: flex;
-  font-size: 25px;
-  font-weight: 500;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.navBar {
-  display: flex;
-  align-items: center;
-}
-
-ul {
-  list-style-type:none;
-}
-
-
-#firstName {
-  padding-right: 10px;
-}
-
-.dropdown {
-  padding-left: 20px;
+.navbar-contact {
   display: inline-flex;
-  position: relative;
 }
 
-.dropdownContent {
-  display: none;
-  margin-top: 20px;
+.navbar-contact-email {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.material-icons {
+  padding-right: 4%;
+  vertical-align: middle;
+  color:#707070;
+}
+
+.navbar {
+  z-index: 2;
   background-color: #FFFFFF;
-  position: absolute;
-  width: 100%;
-  overflow: auto;
-  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown:hover .dropdownContent {
-  display:list-item ;
-}
-
-.dropdownContent a {
-  display: block;
-  color: #000000;
-  padding: 5px;
-  font-weight: 200;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 15px;
-}
-
-.dropdownContent a:hover {
-  color: #FFFFFF;
-  background-color: #00A4BD;
+  transition: all 0.4s ease;
 }
 
 </style>
