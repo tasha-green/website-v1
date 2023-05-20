@@ -69,13 +69,16 @@ export default {
 
       this.camera.position.set(0, 0, 10);
 
-      var loader = new GLTFLoader();
+      const loader = new GLTFLoader();
 
-      loader.load("../assets/bird-metallic1.glb", function(gltf) {
+      loader.load("http://localhost:8081/public/bird.glb", function(gltf) {
         this.mixer = new THREE.AnimationMixer(gltf.scene);
         this.mixer.clipAction(gltf.animations[0]).play();
 
         this.scene.add(gltf.scene);
+      },
+      undefined, function ( error ) {
+        console.error( error );
       });
 
       this.renderer = new THREE.WebGLRenderer();
