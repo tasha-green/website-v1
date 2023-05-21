@@ -1,23 +1,23 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-6">
+    <div class="row pb-4">
+      <div class="col-lg-5">
         <p class="aboutTitle">{{ uxTitle }}</p>
         <p class="aboutTitle">{{ and }}</p>
         <p class="aboutTitle">{{ artTitle }}</p>
       </div>
-      <div class="col-6">
+      <div class="col-lg-7 scene">
         <div id="scene-container">
         </div>
       </div>
     </div>
     <div class="row">
-      <p class="col-12 name">
+      <p class="col-lg-12 name">
         Hi, my name is <em>Tasha</em>!<br>
       </p>
     </div>
     <div class="row">
-      <p class="col-12 intro">
+      <p class="col-lg-12 intro">
         I've graduated with a bachelor's degree in computer science and visual arts at the University of Victoria. I have
         a years worth of experience working as a UX developer/designer. I'm passionate about creating inclusive and responsive designs.
         I also love to create personal web art projects using mostly three.js and blender for 3d modelling.
@@ -38,69 +38,68 @@ export default {
       uxTitle: "UX Developer",
       and: "&",
       artTitle: "Artist",
-      camera: null,
-      container: null,
-      clock: null,
-      scene: null,
-      mixer: null,
-      renderer: null
     }
   },
-  methods: {
-    init: function() {
-      this.container = document.querySelector('#scene-container');
+  mounted: function() {
 
-      this.clock = new THREE.Clock();
-      this.scene = new THREE.Scene();
+    let camera, container, clock, renderer, mixer, scene, loader;
 
-      const ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
-      this.scene.add( ambientLight );
+    init();
+    animate();
 
-      const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
-      directionalLight.position.set( 1, 1, 0 ).normalize();
-      this.scene.add( directionalLight );
+    function init() {
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xF4FCED);
 
-      const fov = 35;
-      const aspect = this.container.clientWidth / this.container.clientHeight;
+      clock = new THREE.Clock();
+
+      renderer = new THREE.WebGLRenderer();
+
+      container = document.querySelector('#scene-container');
+
+      /*const ambientLight = new THREE.AmbientLight( 0xffffff, 0.9 );
+      scene.add( ambientLight );*/
+
+      /*const light = new THREE.PointLight(0xff0000, 1, 100);
+      light.position.set(20, 20, 5);
+      scene.add(light);*/
+
+      const fov = 12;
+      const aspect = container.clientWidth / container.clientHeight;
       const near = 0.1;
-      const far = 100;
+      const far = 150;
 
-      this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+      camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
-      this.camera.position.set(0, 0, 10);
+      camera.position.set(0, 2, 20);
 
-      const loader = new GLTFLoader();
+      loader = new GLTFLoader();
 
-      loader.load("http://localhost:8081/public/bird.glb", function(gltf) {
-        this.mixer = new THREE.AnimationMixer(gltf.scene);
-        this.mixer.clipAction(gltf.animations[0]).play();
+      loader.load("/tree.glb", function(gltf) {
+        gltf.scene.position.set(-0.1, -0.5, 0);
+        gltf.scene.scale.set(0.55, 0.55, 0.55);
+        //mixer = new THREE.AnimationMixer(gltf.scene);
+        //mixer.clipAction(gltf.animations[0]).play();
 
-        this.scene.add(gltf.scene);
-      },
-      undefined, function ( error ) {
-        console.error( error );
+        scene.add(gltf.scene);
       });
 
-      this.renderer = new THREE.WebGLRenderer();
-      this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-      this.renderer.setPixelRatio(window.devicePixelRatio);
-      this.container.append(this.renderer.domElement);
-    },
-    animate: function() {
-      requestAnimationFrame(this.animate);
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      container.append(renderer.domElement);
+    }
 
-      const dt = this.clock.getDelta();
+    function animate() {
+      requestAnimationFrame(animate);
 
-      if(this.mixer) {
-        this.mixer.update(dt);
+      const dt = clock.getDelta();
+
+      if(mixer) {
+        mixer.update(dt);
       }
 
-      this.renderer.render(this.scene, this.camera);
+      renderer.render(scene, camera);
     }
-  },
-  mounted() {
-    this.init();
-    this.animate();
   }
 }
 
@@ -117,13 +116,18 @@ export default {
   font-size: 40px;
   margin-left: 40px;
   margin-block-start: 0px;
+  height: 100%;
+}
+
+.scene {
+  height: 460px;
 }
 
 #scene-container {
   position: absolute;
-  width: 200px;
-  height: 200px;
-  background-color:rgb(100, 138, 108);
+  width: 520px;
+  height: 460px;
+  color: #F4FCED;
 }
 
 .name em {
@@ -148,6 +152,7 @@ export default {
 
 .container {
   position: relative;
+  padding: 0px;
   width: 100%;
   height: 100%;
   background: #F4FCED;
