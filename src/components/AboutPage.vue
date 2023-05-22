@@ -30,6 +30,8 @@
 <script>
 import * as THREE from "../vendor/three/build/three.module.js";
 import { GLTFLoader } from "../vendor/three/examples/GLTFLoader.js"
+import { DRACOLoader } from "../vendor/three/examples/DRACOLoader.js";
+import { RoomEnvironment} from "../vendor/three/examples/RoomEnvironment.js";
 
 export default {
   name: 'AboutPage',
@@ -42,20 +44,28 @@ export default {
   },
   mounted: function() {
 
-    let camera, container, clock, renderer, mixer, scene, loader;
+    let camera, container, renderer, scene, loader;
 
     init();
     animate();
 
     function init() {
+      container = document.querySelector('#scene-container');
+
+      renderer = new THREE.WebGLRenderer({antialias: true});
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      container.append(renderer.domElement);
+
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0xF4FCED);
+      
+      const pmremGenerator = new THREE.PMREMGenerator(renderer);
 
-      clock = new THREE.Clock();
+      scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04).texture;
 
-      renderer = new THREE.WebGLRenderer();
+      //clock = new THREE.Clock();
 
-      container = document.querySelector('#scene-container');
 
       /*const ambientLight = new THREE.AmbientLight( 0xffffff, 0.9 );
       scene.add( ambientLight );*/
@@ -73,8 +83,11 @@ export default {
 
       camera.position.set(0, 2, 20);
 
-      loader = new GLTFLoader();
+      const dracoLoader = new DRACOLoader();
+      dracoLoader.setDecoderPath('/gltf/');
 
+      loader = new GLTFLoader();
+      loader.setDRACOLoader(dracoLoader);
       loader.load("/tree.glb", function(gltf) {
         gltf.scene.position.set(-0.1, -0.5, 0);
         gltf.scene.scale.set(0.55, 0.55, 0.55);
@@ -82,21 +95,18 @@ export default {
         //mixer.clipAction(gltf.animations[0]).play();
 
         scene.add(gltf.scene);
+        animate();
       });
 
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(window.devicePixelRatio);
-      container.append(renderer.domElement);
+    
     }
 
     function animate() {
-      requestAnimationFrame(animate);
+      //requestAnimationFrame(animate);
 
-      const dt = clock.getDelta();
+      //const dt = clock.getDelta();
 
-      if(mixer) {
-        mixer.update(dt);
-      }
+     
 
       renderer.render(scene, camera);
     }
