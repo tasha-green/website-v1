@@ -84,13 +84,7 @@ export default {
         model = gltf.scene;
         model.position.set(0, 0, 0);
         model.scale.set(0.4, 0.4, 0.4);
-        //mixer = new THREE.AnimationMixer(gltf.scene);
-        //mixer.clipAction(gltf.animations[0]).play();
-
-        
-
         scene.add(gltf.scene);
-        //animate();
       });
 
   
