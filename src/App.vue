@@ -72,8 +72,7 @@ function getDocumentHeight() {
   bottom: 0;
   left: 0;
   width: 10px;
-  height: 90.5%;
-  /*height: 100%;*/
+  height: 100%;
   z-index: 1;
   --bs-progress-bg: #F4FCED;
 }

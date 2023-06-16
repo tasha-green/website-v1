@@ -46,6 +46,8 @@ export default {
 
     let camera, container, renderer, scene, loader;
 
+    let model;
+
     init();
     animate();
 
@@ -64,16 +66,6 @@ export default {
 
       scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04).texture;
 
-      //clock = new THREE.Clock();
-
-
-      /*const ambientLight = new THREE.AmbientLight( 0xffffff, 0.9 );
-      scene.add( ambientLight );*/
-
-      /*const light = new THREE.PointLight(0xff0000, 1, 100);
-      light.position.set(20, 20, 5);
-      scene.add(light);*/
-
       const fov = 12;
       const aspect = container.clientWidth / container.clientHeight;
       const near = 0.1;
@@ -89,24 +81,30 @@ export default {
       loader = new GLTFLoader();
       loader.setDRACOLoader(dracoLoader);
       loader.load("/tree.glb", function(gltf) {
-        gltf.scene.position.set(-0.1, -0.5, 0);
-        gltf.scene.scale.set(0.55, 0.55, 0.55);
+        model = gltf.scene;
+        model.position.set(0, 0, 0);
+        model.scale.set(0.4, 0.4, 0.4);
         //mixer = new THREE.AnimationMixer(gltf.scene);
         //mixer.clipAction(gltf.animations[0]).play();
 
+        
+
         scene.add(gltf.scene);
-        animate();
+        //animate();
       });
 
-    
+  
+
+      animate();
     }
 
     function animate() {
-      //requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
 
-      //const dt = clock.getDelta();
 
-     
+     if(model) {
+      model.rotation.y += 0.01;
+     }
 
       renderer.render(scene, camera);
     }
