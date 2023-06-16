@@ -98,6 +98,10 @@ export default {
 
      if(model) {
       model.rotation.y += 0.01;
+
+      if(model.rotation.y >= Math.PI * 2) {
+        model.rotation.y = 0;
+      }
      }
 
       renderer.render(scene, camera);
