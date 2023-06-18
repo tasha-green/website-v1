@@ -9,9 +9,9 @@
     </div>
   </nav>
 
-  <div class="body">
+  <div class="body py-5">
     <div class="body-progress"></div>
-    <div class="body-pages">
+    <div class="body-pages pt-4">
       <AboutPage/>
     </div>
   </div>
@@ -80,6 +80,10 @@ function getDocumentHeight() {
 .body {
   padding: 78px 0px 0px;
   background-color: #F4FCED;
+}
+
+.navbar-brand{
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .navbar-contact {

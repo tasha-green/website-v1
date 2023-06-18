@@ -7,8 +7,7 @@
         <p class="aboutTitle">{{ artTitle }}</p>
       </div>
       <div class="col-lg-7 scene">
-        <div id="scene-container">
-        </div>
+        <div id="scene-container"></div>
       </div>
     </div>
     <div class="row">
@@ -18,10 +17,39 @@
     </div>
     <div class="row">
       <p class="col-lg-12 intro">
-        I've graduated with a bachelor's degree in computer science and visual arts at the University of Victoria. I have
-        a years worth of experience working as a UX developer/designer. I'm passionate about creating inclusive and responsive designs.
-        I also love to create personal web art projects using mostly three.js and blender for 3d modelling.
+        I've recently graduate from the University of Victoria with a bachelor of science in computer science and visual arts. I also have
+        a years worth of experience working as a UX designer. I'm passionate about designing and creating inclusive and responsive designs.
+        I also love to create personal web art projects using three.js and blender.
       </p>
+    </div>
+    <div class="row">
+      <h2 class="col-10 title">UX Design</h2>
+    </div>
+    <div class="flex-row card d-flex my-4">
+      <div class="col-5 card-image">
+        <img src="/Details-Painting.PNG" alt="Details Painting Logo">
+      </div>
+
+      <div class="col-7 ps-3 pt-2">
+        <div class="row">
+          <div class="col-8">
+            <h5 clas="card-title">Details Painting</h5>
+          </div>
+          <div class="col-4">
+            <p class="card-time">May 2023 - Current</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="card-body">Details Painting is a small locally-owned painting business looking to upgrade their website.
+              For this project, we're using angular with bootstrap. I'm responsible for building the individual pages as well 
+              as designing the services, quote, diy and courses pages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h2 class="col-10 title">Digital Art</h2>
     </div>
   </div>
 
@@ -37,7 +65,7 @@ export default {
   name: 'AboutPage',
   data() {
     return {
-      uxTitle: "UX Developer",
+      uxTitle: "UX Designer",
       and: "&",
       artTitle: "Artist",
     }
@@ -163,5 +191,36 @@ export default {
   height: 100%;
   background: #F4FCED;
   z-index: 0;
+}
+
+.card {
+  box-shadow: 5px 5px 5px lightgrey;
+  border: none;
+  border-radius: 15px;
+  margin-left: 40px
+}
+
+img {
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+h5 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h2 {
+  margin-left: 40px;
+}
+.card-time {
+  font-weight: lighter;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.card-body {
+  padding: 0%;
+  margin: 0%;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 </style>
