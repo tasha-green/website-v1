@@ -28,13 +28,13 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <img src="/Details-Painting.PNG" alt="Details Painting Logo">
+        <a href="https://www.ddetailspainting.com/" target="_blank"><img src="/Details-Painting.PNG" alt="Details Painting Logo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <h5 clas="card-title">Details Painting</h5>
+            <a class="card-title btn btn-link" href="https://www.ddetailspainting.com/" target="_blank" role="button">Details Painting</a>
           </div>
           <div class="col-6">
             <p class="card-time">May 2023 - Current</p>
@@ -47,18 +47,19 @@
               as designing the services, quote, diy and courses pages.</p>
           </div>
         </div>
+        
       </div>
     </div>
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <img src="/d3.PNG" alt="Details Painting Logo">
+        <a href="https://observablehq.com/d/f8b681d8b2a20dc6" target="_blank"><img src="/d3.PNG" alt="Sunburst photo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <h5 clas="card-title">The Effects of the Pandemic on Student's Mental Health</h5>
+            <a class="card-title btn btn-link" href="https://observablehq.com/d/f8b681d8b2a20dc6" target="_blank" role="button">The Effects of the Pandemic on Student's Mental Health</a>
           </div>
           <div class="col-6">
             <p class="card-time">Sept 2022 - Dec 2022</p>
@@ -77,13 +78,13 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <img src="/Pilates.png" alt="Details Painting Logo">
+        <a href="https://www.pilatesonthelake.ca/" target="_blank"><img src="/Pilates.png" alt="Pilates Logo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <h5 clas="card-title">Pilates on The Lake</h5>
+            <a class="card-title btn btn-link" href="https://www.pilatesonthelake.ca/" target="_blank" role="button">Pilates on The Lake</a>
           </div>
           <div class="col-6">
             <p class="card-time">May 2020</p>
@@ -102,13 +103,13 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <img src="/USNR.png" alt="Details Painting Logo">
+        <a href="https://www.usnr.com/en/page/home" target="_blank"><img src="/USNR.png" alt="USNR Logo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <h5 clas="card-title">USNR</h5>
+            <a class="card-title btn btn-link" href="https://www.usnr.com/en/page/home" target="_blank" role="button">USNR</a>
           </div>
           <div class="col-6">
             <p class="card-time">May 2018 - Aug 2018</p>
@@ -133,13 +134,13 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <img src="/Birds.PNG" alt="Details Painting Logo">
+        <img src="/Birds.PNG" alt="Bird blender">
       </div>
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <h5 clas="card-title">Flocking of a Complex 3d Model</h5>
+            <h5 class="card-title">Flocking of a Complex 3d Model</h5>
           </div>
           <div class="col-6">
             <p class="card-time">Jan 2023 - April 2023</p>
@@ -159,13 +160,13 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <img src="/connections-1.PNG" alt="Details Painting Logo">
+        <a href="https://codesandbox.io/s/connections-32kwp" target="_blank"><img src="/connections-1.PNG" alt="Connections image sample"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <h5 clas="card-title">Connections</h5>
+            <a class="card-title btn btn-link" href="https://codesandbox.io/s/connections-32kwp" target="_blank" role="button">Connections</a>
           </div>
           <div class="col-6">
             <p class="card-time">Sept 2020 - April 2021</p>
@@ -185,13 +186,13 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <img src="/polar.PNG" alt="Details Painting Logo">
+        <a href="https://codesandbox.io/s/interactive-audio-how-do-you-feel-3i5zr" target="_blank"><img src="/polar.PNG" alt="Details Painting Logo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <h5 clas="card-title">How do you feel?</h5>
+            <a class="card-title btn btn-link" href="https://codesandbox.io/s/interactive-audio-how-do-you-feel-3i5zr" target="_blank" role="button">How do you feel?</a>
           </div>
           <div class="col-6">
             <p class="card-time">Sept 2020</p>
@@ -230,10 +231,9 @@ export default {
 
     let camera, container, renderer, scene, loader;
 
-    let model;
+    let model, boom;
 
     init();
-    animate();
 
     function init() {
       container = document.querySelector('#scene-container');
@@ -257,7 +257,7 @@ export default {
 
       camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
-      camera.position.set(0, 2, 20);
+      //camera.position.set(0, 2, 20);
 
       const dracoLoader = new DRACOLoader();
       dracoLoader.setDecoderPath('/gltf/');
@@ -266,25 +266,30 @@ export default {
       loader.setDRACOLoader(dracoLoader);
       loader.load("/tree.glb", function(gltf) {
         model = gltf.scene;
-        model.position.set(0, 0, 0);
+        model.position.set(0, -1.75, 0);
         model.scale.set(0.4, 0.4, 0.4);
         scene.add(gltf.scene);
       });
 
-  
+      boom = new THREE.Group();
+      boom.add(camera);
+      scene.add(boom);
+
+      camera.position.set(0, 0, 20);
+      camera.lookAt(0, 0, 0);
 
       animate();
     }
 
+
     function animate() {
       requestAnimationFrame(animate);
 
+     if(boom) {
+      boom.rotation.y += 0.01;
 
-     if(model) {
-      model.rotation.y += 0.01;
-
-      if(model.rotation.y >= Math.PI * 2) {
-        model.rotation.y = 0;
+      if(boom.rotation.y >= Math.PI * 2) {
+        boom.rotation.y = 0;
       }
      }
 
@@ -362,7 +367,7 @@ img {
   border-bottom-left-radius: 15px;
 }
 
-h5 {
+.card-title {
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -379,4 +384,6 @@ h2 {
   margin: 0%;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+
 </style>
