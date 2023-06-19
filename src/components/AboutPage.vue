@@ -25,6 +25,7 @@
     <div class="row">
       <h2 class="col-10 title">UX Design</h2>
     </div>
+
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
         <img src="/Details-Painting.PNG" alt="Details Painting Logo">
@@ -32,10 +33,10 @@
 
       <div class="col-7 ps-3 pt-2">
         <div class="row">
-          <div class="col-8">
+          <div class="col-6">
             <h5 clas="card-title">Details Painting</h5>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <p class="card-time">May 2023 - Current</p>
           </div>
         </div>
@@ -48,9 +49,164 @@
         </div>
       </div>
     </div>
+
+    <div class="flex-row card d-flex my-4">
+      <div class="col-5 card-image">
+        <img src="/d3.PNG" alt="Details Painting Logo">
+      </div>
+
+      <div class="col-7 ps-3 pt-2">
+        <div class="row">
+          <div class="col-6">
+            <h5 clas="card-title">The Effects of the Pandemic on Student's Mental Health</h5>
+          </div>
+          <div class="col-6">
+            <p class="card-time">Sept 2022 - Dec 2022</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="card-body">In a team of two, we created a unique zoomable sunburst chart to show how the pandemic affected the mental health of students across Canada based of different age ranges.
+              The project was for a fourth year design course at the University of Victorio. The data we used came from the University of Victoria Dataverse Collection and was
+              done in 2020.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-row card d-flex my-4">
+      <div class="col-5 card-image">
+        <img src="/Pilates.png" alt="Details Painting Logo">
+      </div>
+
+      <div class="col-7 ps-3 pt-2">
+        <div class="row">
+          <div class="col-6">
+            <h5 clas="card-title">Pilates on The Lake</h5>
+          </div>
+          <div class="col-6">
+            <p class="card-time">May 2020</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="card-body">Pilates on The Lake asked for a new logo for their new website. Using adobe illustrator,
+              I tried to create designs based off of the client's favourite pilates poses. I also made sure to be mindful of the website's colour palette
+              during the iterative design process. I used a tool called Colour Space which generates different types of colour palettes based off of a single colour.  
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-row card d-flex my-4">
+      <div class="col-5 card-image">
+        <img src="/USNR.png" alt="Details Painting Logo">
+      </div>
+
+      <div class="col-7 ps-3 pt-2">
+        <div class="row">
+          <div class="col-6">
+            <h5 clas="card-title">USNR</h5>
+          </div>
+          <div class="col-6">
+            <p class="card-time">May 2018 - Aug 2018</p>
+            <p class="card-time">Dec 2018 - Aug 2019</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="card-body">I was hired as a coop student for USNR, which is an international sawmill company that strives to create efficient sawmill machines.
+              I worked as part of a small team of frontend developers and designers that were in the process of redesigning and updating the software 
+              that controlled the different sawmill machines.  We worked on the overall themes, icons, fonts & spacing, main menu and pages associated with the trimmer.
+              I also helped test and fix small bugs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <h2 class="col-10 title">Digital Art</h2>
     </div>
+
+    <div class="flex-row card d-flex my-4">
+      <div class="col-5 card-image">
+        <img src="/Birds.PNG" alt="Details Painting Logo">
+      </div>
+
+      <div class="col-7 ps-3 pt-2">
+        <div class="row">
+          <div class="col-6">
+            <h5 clas="card-title">Flocking of a Complex 3d Model</h5>
+          </div>
+          <div class="col-6">
+            <p class="card-time">Jan 2023 - April 2023</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="card-body">This was a semester long graphics project for a fourth year class at the university of Victoria. 
+              The project was built using THREE.js and blender. It was divided into several parts: modelling, character control, collision handling and a flocking simulation.
+              The flocking animation was a leader agent-based mathematical model. While the study is was based on did take light inspiration from the boids algorithm, it adds layers
+              of complexity to better model the behaviour of birds. There are three steering forces: repulsion, alignment and attraction. Gravity is also taken into account</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flex-row card d-flex my-4">
+      <div class="col-5 card-image">
+        <img src="/connections-1.PNG" alt="Details Painting Logo">
+      </div>
+
+      <div class="col-7 ps-3 pt-2">
+        <div class="row">
+          <div class="col-6">
+            <h5 clas="card-title">Connections</h5>
+          </div>
+          <div class="col-6">
+            <p class="card-time">Sept 2020 - April 2021</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="card-body">Connections was a THREE.js art piece created for my fourth year intensive arts course at the University of Victoria. It was a 8-month long abstract piece that
+            explores mood swings. I hoped to express the internal chaos that can come with hypomania, depression and the mixed episodes of bipolar II. 
+            It can be very difficult to convey the realities of mental illnesses when so much of it is internal so I dedicated my fourth year art courses to learning
+            and creating art about various mental illnesses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-row card d-flex my-4">
+      <div class="col-5 card-image">
+        <img src="/polar.PNG" alt="Details Painting Logo">
+      </div>
+
+      <div class="col-7 ps-3 pt-2">
+        <div class="row">
+          <div class="col-6">
+            <h5 clas="card-title">How do you feel?</h5>
+          </div>
+          <div class="col-6">
+            <p class="card-time">Sept 2020</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="card-body">This interactive audio piece was a month long project to convey social anxiety. It was made using THREE.js.
+              The audio is using stereo so, headphones are preferred. This was my first interactive piece.
+            </p> 
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </template>
