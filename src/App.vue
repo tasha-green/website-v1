@@ -4,7 +4,9 @@
       <a class="navbar-brand" href="#">{{ logoFirst }} {{ logoLast }}</a>
       <div class="navbar-contact">
         <span class="material-icons">{{ emailIcon }}</span>
-        <p class="navbar-contact-email">natasha2green@gmail.com</p>
+        <div id="liveAlert"></div>
+        
+        <button class="navbar-contact-email btn btn-link" @click="copy">natasha2green@gmail.com</button>
       </div>
     </div>
   </nav>
@@ -30,6 +32,46 @@ export default {
       logoFirst: "Natasha",
       logoLast: "Green",
       emailIcon: "email"
+    }
+  },
+  methods: {
+    async copy() {
+      let text = "natasha2green@gmail.com";
+
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log('Content copied to clipboard');
+
+        const alertPlaceholder = document.getElementById('liveAlert');
+
+        const appendAlert = (message) => {
+          const wrapper = document.createElement('div')
+          wrapper.innerHTML = [
+          `<div class="alert alert-dark alert-dismissible fade show">`,
+          `   <strong>${message}</strong>`,
+          '</div>'
+          ].join('');
+
+          alertPlaceholder.append(wrapper);
+
+          setInterval(function () {
+            if (!alertPlaceholder.style.opacity) {
+                alertPlaceholder.style.opacity = 1;
+            }
+            if (alertPlaceholder.style.opacity > 0) {
+                alertPlaceholder.style.opacity -= 0.05;
+            } else {
+                clearInterval(alertPlaceholder);
+            }
+          }, 200);
+            
+        }
+
+        appendAlert('You\'ve copied the email!')
+
+      } catch(err) {
+        console.error('Failed to copy: ', err);
+      }
     }
   }
 }
@@ -92,11 +134,16 @@ function getDocumentHeight() {
 
 .navbar-contact-email {
   margin-bottom: 0px;
-  padding-bottom: 0px;
+  padding-right: 20px;
+  padding-left: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  font-family: 'Courier New', Courier, monospace;
+  color:black;
 }
 
 .material-icons {
-  padding-right: 4%;
+  padding-right: 2%;
   vertical-align: middle;
   color:#707070;
 }
@@ -107,4 +154,11 @@ function getDocumentHeight() {
   transition: all 0.4s ease;
 }
 
+.alert {
+  position: absolute;
+  font-size: smaller;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0%;
+  padding: 15px;
+}
 </style>

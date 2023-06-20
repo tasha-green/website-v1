@@ -14,6 +14,7 @@
       <p class="col-lg-12 name">
         Hi, my name is <em>Tasha</em>!<br>
       </p>
+      
     </div>
     <div class="row">
       <p class="col-lg-12 intro">
