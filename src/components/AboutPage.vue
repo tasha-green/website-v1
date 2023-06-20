@@ -19,7 +19,7 @@
     <div class="row">
       <p class="col-lg-12 intro">
         I've recently graduated from the University of Victoria with a bachelor of science in computer science and visual arts. I also have
-        a years worth of experience working as a UX designer. I'm passionate about designing and creating inclusive and responsive designs.
+        a year's worth of experience working as a UX designer. I'm passionate about designing and creating inclusive and responsive designs.
         I also love to create personal web art projects using three.js and blender.
       </p>
     </div>
