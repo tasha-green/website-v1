@@ -232,7 +232,7 @@ export default {
 
     let camera, container, renderer, scene, loader;
 
-    let model, boom;
+    let model;
 
     init();
 
@@ -258,7 +258,7 @@ export default {
 
       camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
-      //camera.position.set(0, 2, 20);
+      camera.position.set(0, 2, 20);
 
       const dracoLoader = new DRACOLoader();
       dracoLoader.setDecoderPath('/gltf/');
@@ -267,17 +267,13 @@ export default {
       loader.setDRACOLoader(dracoLoader);
       loader.load("/tree.glb", function(gltf) {
         model = gltf.scene;
-        model.position.set(0, -1.75, 0);
+        //model.position.set(0, -1.75, 0);
         model.scale.set(0.4, 0.4, 0.4);
         scene.add(gltf.scene);
       });
 
-      boom = new THREE.Group();
-      boom.add(camera);
-      scene.add(boom);
-
-      camera.position.set(0, 0, 20);
-      camera.lookAt(0, 0, 0);
+      //camera.position.set(0, 0, 20);
+      //camera.lookAt(0, 0, 0);
 
       animate();
     }
@@ -286,11 +282,11 @@ export default {
     function animate() {
       requestAnimationFrame(animate);
 
-     if(boom) {
-      boom.rotation.y += 0.01;
+     if(model) {
+      model.rotation.y += 0.005;
 
-      if(boom.rotation.y >= Math.PI * 2) {
-        boom.rotation.y = 0;
+      if(model.rotation.y >= Math.PI * 2) {
+        model.rotation.y = 0;
       }
      }
 
