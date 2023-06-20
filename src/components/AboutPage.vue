@@ -1,26 +1,26 @@
 <template>
   <div class="container">
     <div class="row pb-4">
-      <div class="col-lg-5">
+      <div class="col-5">
         <p class="aboutTitle">{{ uxTitle }}</p>
         <p class="aboutTitle">{{ and }}</p>
         <p class="aboutTitle">{{ artTitle }}</p>
       </div>
-      <div class="col-lg-7 scene">
+      <div class="col-7 scene">
         <div id="scene-container"></div>
       </div>
     </div>
     <div class="row">
-      <p class="col-lg-12 name">
+      <p class="col-11 name">
         Hi, my name is <em>Tasha</em>!<br>
       </p>
       
     </div>
     <div class="row">
-      <p class="col-lg-12 intro">
+      <p class="col-11 intro">
         I've recently graduated from the University of Victoria with a bachelor of science in computer science and visual arts. I also have
         a year's worth of experience working as a UX designer. I'm passionate about designing and creating inclusive and responsive designs.
-        I also love to create personal web art projects using three.js and blender.
+        I also love to create personal web art projects using THREE.js and blender.
       </p>
     </div>
     <div class="row">
@@ -35,7 +35,7 @@
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <a class="card-title btn btn-link" href="https://www.ddetailspainting.com/" target="_blank" role="button">Details Painting</a>
+            <a class="card-title btn btn-link p-0 m-0" href="https://www.ddetailspainting.com/" target="_blank" role="button">Details Painting</a>
           </div>
           <div class="col-6">
             <p class="card-time">May 2023 - Current</p>
@@ -60,7 +60,7 @@
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <a class="card-title btn btn-link" href="https://observablehq.com/d/f8b681d8b2a20dc6" target="_blank" role="button">The Effects of the Pandemic on Student's Mental Health</a>
+            <a class="card-title btn btn-link p-0 m-0" href="https://observablehq.com/d/f8b681d8b2a20dc6" target="_blank" role="button">The Effects of the Pandemic on Student's Mental Health</a>
           </div>
           <div class="col-6">
             <p class="card-time">Sept 2022 - Dec 2022</p>
@@ -69,7 +69,7 @@
         <div class="row">
           <div class="col-12">
             <p class="card-body">In a team of two, we created a unique zoomable sunburst chart to show how the pandemic affected the mental health of students across Canada based of different age ranges.
-              The project was for a fourth year design course at the University of Victorio. The data we used came from the University of Victoria Dataverse Collection and was
+              The project was for a fourth year design course at the University of Victoria. The data we used came from the University of Victoria Dataverse Collection and was
               done in 2020.
             </p>
           </div>
@@ -85,7 +85,7 @@
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <a class="card-title btn btn-link" href="https://www.pilatesonthelake.ca/" target="_blank" role="button">Pilates on The Lake</a>
+            <a class="card-title btn btn-link p-0 m-0" href="https://www.pilatesonthelake.ca/" target="_blank" role="button">Pilates on The Lake</a>
           </div>
           <div class="col-6">
             <p class="card-time">May 2020</p>
@@ -93,7 +93,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <p class="card-body">Pilates on The Lake asked for a new logo for their new website. Using adobe illustrator,
+            <p class="card-body">Pilates on The Lake asked for a new logo for their new website. Using adobe Illustrator,
               I tried to create designs based off of the client's favourite pilates poses. I also made sure to be mindful of the website's colour palette
               during the iterative design process. I used a tool called Colour Space which generates different types of colour palettes based off of a single colour.  
             </p>
@@ -110,10 +110,10 @@
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <a class="card-title btn btn-link" href="https://www.usnr.com/en/page/home" target="_blank" role="button">USNR</a>
+            <a class="card-title btn btn-link p-0 m-0" href="https://www.usnr.com/en/page/home" target="_blank" role="button">USNR</a>
           </div>
           <div class="col-6">
-            <p class="card-time">May 2018 - Aug 2018</p>
+            <p class="card-time mb-0">May 2018 - Aug 2018</p>
             <p class="card-time">Dec 2018 - Aug 2019</p>
           </div>
         </div>
@@ -151,7 +151,7 @@
           <div class="col-12">
             <p class="card-body">This was a semester long graphics project for a fourth year class at the university of Victoria. 
               The project was built using THREE.js and blender. It was divided into several parts: modelling, character control, collision handling and a flocking simulation.
-              The flocking animation was a leader agent-based mathematical model. While the study is was based on did take light inspiration from the boids algorithm, it adds layers
+              The flocking animation was a leader agent-based mathematical model. While it does take light inspiration from the boids algorithm, it adds layers
               of complexity to better model the behaviour of birds. There are three steering forces: repulsion, alignment and attraction. Gravity is also taken into account</p>
           </div>
         </div>
@@ -167,7 +167,7 @@
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <a class="card-title btn btn-link" href="https://codesandbox.io/s/connections-32kwp" target="_blank" role="button">Connections</a>
+            <a class="card-title btn btn-link p-0 m-0" href="https://codesandbox.io/s/connections-32kwp" target="_blank" role="button">Connections</a>
           </div>
           <div class="col-6">
             <p class="card-time">Sept 2020 - April 2021</p>
@@ -175,7 +175,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <p class="card-body">Connections was a THREE.js art piece created for my fourth year intensive arts course at the University of Victoria. It was a 8-month long abstract piece that
+            <p class="card-body">Connections was a THREE.js art piece created for my fourth year intensive arts course at the University of Victoria. It was an eight month long abstract piece that
             explores mood swings. I hoped to express the internal chaos that can come with hypomania, depression and the mixed episodes of bipolar II. 
             It can be very difficult to convey the realities of mental illnesses when so much of it is internal so I dedicated my fourth year art courses to learning
             and creating art about various mental illnesses.
@@ -193,7 +193,7 @@
       <div class="col-7 ps-3 pt-2">
         <div class="row">
           <div class="col-6">
-            <a class="card-title btn btn-link" href="https://codesandbox.io/s/interactive-audio-how-do-you-feel-3i5zr" target="_blank" role="button">How do you feel?</a>
+            <a class="card-title btn btn-link p-0 m-0" href="https://codesandbox.io/s/interactive-audio-how-do-you-feel-3i5zr" target="_blank" role="button">How do you feel?</a>
           </div>
           <div class="col-6">
             <p class="card-time">Sept 2020</p>
@@ -366,6 +366,8 @@ img {
 
 .card-title {
   font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  text-align: left;
 }
 
 h2 {
@@ -374,12 +376,15 @@ h2 {
 .card-time {
   font-weight: lighter;
   font-family: 'Courier New', Courier, monospace;
+  text-align: right;
+  margin-right: 4%;
 }
 
 .card-body {
   padding: 0%;
-  margin: 0%;
+  margin-right: 4%;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 
