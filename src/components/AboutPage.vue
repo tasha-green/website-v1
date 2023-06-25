@@ -120,7 +120,7 @@
         <div class="row">
           <div class="col-12">
             <p class="card-body">I was hired as a coop student for USNR, which is an international sawmill company that strives to create efficient sawmill machines.
-              I worked as part of a small team of frontend developers and designers that were in the process of redesigning and updating the software 
+              I worked as part of a small team of front-end developers and designers that were in the process of redesigning and updating the software 
               that controlled the different sawmill machines.  We worked on the overall themes, icons, fonts & spacing, main menu and pages associated with the trimmer.
               I also helped test and fix small bugs.
             </p>
