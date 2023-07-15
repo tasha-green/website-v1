@@ -129,6 +129,32 @@
       </div>
     </div>
 
+      <div class="flex-row card d-flex my-4">
+        <div class="col-5 card-image">
+          <a href="https://www.communitystories.ca/v2/paleontology-vancouver-islnd_paleontologie-ile-vancouver/" target="_blank"><img src="/QB_Museum.png" alt="Qualicum Beach Museum Logo"></a>
+        </div>
+
+        <div class="col-7 ps-3 pt-2">
+          <div class="row">
+            <div class="col-6">
+              <a class="card-title btn btn-link p-0 m-0" href="https://www.communitystories.ca/v2/paleontology-vancouver-islnd_paleontologie-ile-vancouver/" target="_blank" role="button">Qualicum Beach Museum</a>
+            </div>
+            <div class="col-6">
+              <p class="card-time">June 2017 - Aug 2017</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p class="card-body">I worked with a small team to create the Virtual Museum Project. 
+                My role was to use WordPress to add the Qualicum Beach paleontology stories to the project. 
+                I primarily used WordPress’s HTML editor.
+              </p>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
     <div class="row">
       <h2 class="col-10 title">Digital Art</h2>
     </div>
