@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row pb-4">
-      <div class="col-5">
+    <div class="row d-flex flex-wrap pb-4">
+      <div class="col-10 col-md-5">
         <p class="aboutTitle">{{ uxTitle }}</p>
         <p class="aboutTitle">{{ and }}</p>
         <p class="aboutTitle">{{ artTitle }}</p>
@@ -385,6 +385,12 @@ h2 {
   margin-right: 4%;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
+}
+
+@media (max-width: 770px) {
+  .scene {
+    display: none;
+  }
 }
 
 
