@@ -156,6 +156,7 @@ function getDocumentHeight() {
   z-index: 2;
   background-color: #FFFFFF;
   transition: all 0.4s ease;
+  box-shadow: 10px 0px 10px 3px lightgrey;
 }
 
 .alert {
