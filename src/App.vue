@@ -1,4 +1,6 @@
 <template>
+  <!--<PageLoader/>-->
+
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">{{ logoFirst }} {{ logoLast }}</a>
@@ -21,11 +23,13 @@
 
 <script>
 import AboutPage from './components/AboutPage.vue'
+//import PageLoader from './components/PageLoader.vue'
 
 export default {
   name: 'App',
   components: {
-    AboutPage
+    AboutPage,
+    //PageLoader
   },
   data() {
     return {

@@ -11,13 +11,13 @@
       </div>
     </div>
     <div class="row">
-      <p class="col-11 name">
+      <p class="col-10 name">
         Hi, my name is <em>Tasha</em>!<br>
       </p>
       
     </div>
     <div class="row">
-      <p class="col-11 intro">
+      <p class="col-10 intro">
         I've recently graduated from the University of Victoria with a bachelor of science in computer science and visual arts. I also have
         a year's worth of experience working as a UX designer. I'm passionate about designing and creating inclusive and responsive designs.
         I also love to create personal web art projects using THREE.js and blender.
