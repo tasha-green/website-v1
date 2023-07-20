@@ -54,7 +54,7 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <a href="https://observablehq.com/d/f8b681d8b2a20dc6" target="_blank"><img src="/d3.PNG" alt="Sunburst photo"></a>
+        <a href="https://observablehq.com/d/f8b681d8b2a20dc6" target="_blank"><img class="white_background" src="/d3.PNG" alt="Sunburst photo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
@@ -79,7 +79,7 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <a href="https://www.pilatesonthelake.ca/" target="_blank"><img src="/Pilates.png" alt="Pilates Logo"></a>
+        <a href="https://www.pilatesonthelake.ca/" target="_blank"><img class="white_background" src="/Pilates.png" alt="Pilates Logo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
@@ -104,7 +104,7 @@
 
     <div class="flex-row card d-flex my-4">
       <div class="col-5 card-image">
-        <a href="https://www.usnr.com/en/page/home" target="_blank"><img src="/USNR.png" alt="USNR Logo"></a>
+        <a href="https://www.usnr.com/en/page/home" target="_blank"><img class="white_background" src="/USNR.png" alt="USNR Logo"></a>
       </div>
 
       <div class="col-7 ps-3 pt-2">
@@ -131,7 +131,7 @@
 
       <div class="flex-row card d-flex my-4">
         <div class="col-5 card-image">
-          <a href="https://www.communitystories.ca/v2/paleontology-vancouver-islnd_paleontologie-ile-vancouver/" target="_blank"><img src="/QB_Museum.png" alt="Qualicum Beach Museum Logo"></a>
+          <a href="https://www.communitystories.ca/v2/paleontology-vancouver-islnd_paleontologie-ile-vancouver/" target="_blank"><img class="white_background" src="/QB_Museum.png" alt="Qualicum Beach Museum Logo"></a>
         </div>
 
         <div class="col-7 ps-3 pt-2">
@@ -386,8 +386,14 @@ export default {
 
 img {
   width: 100%;
+  height: -webkit-fill-available;
+  object-fit: cover;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+}
+
+.white_background {
+  object-fit: contain;
 }
 
 .card-title {
