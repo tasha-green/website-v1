@@ -38,7 +38,7 @@
             <a class="card-title btn btn-link p-0 m-0" href="https://www.ddetailspainting.com/" target="_blank" role="button">Details Painting</a>
           </div>
           <div class="col-6">
-            <p class="card-time">May 2023 - Current</p>
+            <p class="card-time">May 2023 - July 2023</p>
           </div>
         </div>
         <div class="row">
